@@ -1,6 +1,6 @@
 {
   "name": "jquery-scrollme",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A super lightweight jQuery plug-in for parallax scrolling-ish effects",
   "main": "index.js",
   "directories": {
@@ -23,6 +23,7 @@
   "gitHead": "80731b7f51c9fd2cd70ce5df3ca6514dd8b44232",
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-contrib-uglify": "~0.2.0"
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-jshint": "~0.4.3"
   }
 }

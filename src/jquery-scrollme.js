@@ -68,36 +68,40 @@
         return Math.sin(t*Math.PI/2);
     };
     _easing.sineInOut = function(t) {
-        return -0.5*(Math.cos(Math.PI*t) - 1)
-    }
+        return -0.5*(Math.cos(Math.PI*t) - 1);
+    };
     _easing.getBackIn = function(amount) {
         return function(t) {
             return t*t*((amount+1)*t-amount);
-        }
-    }
+        };
+    };
     _easing.getBackOut = function(amount) {
         return function(t) {
             return (--t*t*((amount+1)*t + amount) + 1);
-        }
+        };
     };
     _easing.backOut = _easing.getBackOut(2);
     _easing.backIn = _easing.getBackIn(2);
     _easing.getElasticIn = function(amplitude,period) {
         var pi2 = Math.PI*2;
         return function(t) {
-            if (t==0 || t==1) return t;
+            if (t===0 || t===1) {
+                return t;
+            }
             var s = period/pi2*Math.asin(1/amplitude);
             return -(amplitude*Math.pow(2,10*(t-=1))*Math.sin((t-s)*pi2/period));
-        }
+        };
     };
     _easing.elasticIn = _easing.getElasticIn(1,0.3);
     _easing.getElasticOut = function(amplitude,period) {
         var pi2 = Math.PI*2;
         return function(t) {
-            if (t==0 || t==1) return t;
+            if (t===0 || t===1) {
+                return t;
+            }
             var s = period/pi2 * Math.asin(1/amplitude);
             return (amplitude*Math.pow(2,-10*t)*Math.sin((t-s)*pi2/period )+1);
-        }
+        };
     };
     _easing.elasticOut = _easing.getElasticOut(1,0.3);
 
@@ -130,7 +134,7 @@
                         var extracted = [];
                         $.each(prop_spec.split(/ /), function(i, spec_token) {
                             var trimmed_spec_token = _trim(spec_token);
-                            if (trimmed_spec_token != '') {
+                            if (trimmed_spec_token !== '') {
                                 extracted.push(trimmed_spec_token);
                             }
                         });
@@ -216,7 +220,8 @@
 
                 // multiple properties
                 $.each(obj.props, function(i, prop) {
-                    var curr_val = prop.start + (prop.end - prop.start) * prop.easing(frac);
+                    var curr_val = prop.start + (prop.end - prop.start) * prop.easing(frac),
+                        orig;
 
                     if (!$.isNumeric(prop.start) || !$.isNumeric(prop.end)) {
                         // non-numeric value only applied when hitting the end threshold
@@ -234,12 +239,12 @@
                         }
                         else if (prop.name == 'background-position-x') {
                             // lock y, change x
-                            var orig = obj.element.css('background-position').split(/ /);
+                            orig = obj.element.css('background-position').split(/ /);
                             obj.element.css('background-position', curr_val + prop.unit + ' ' + orig[1]);
                         }
                         else if (prop.name == 'background-position-y') {
                             // lock x, change y
-                            var orig = obj.element.css('background-position').split(/ /);
+                            orig = obj.element.css('background-position').split(/ /);
                             obj.element.css('background-position', orig[0] + ' ' + curr_val + prop.unit);
                         }
                     }
@@ -278,8 +283,11 @@
     function _trim(str) {
         var start = -1,
         end = str.length;
-        while (str.charCodeAt(--end) < 33);
-        while (str.charCodeAt(++start) < 33);
+        while (str.charCodeAt(--end) < 33) {
+            while (str.charCodeAt(++start) < 33) {
+
+            } 
+        }
         return str.slice(start, end + 1);
     }
 
@@ -297,10 +305,8 @@
         switch (axis) {
             case 'x':
                 return $window.width() * (percentage / 100);
-                break;
             case 'y':
                 return $window.height() * (percentage / 100);
-                break;
         }
     }
 
