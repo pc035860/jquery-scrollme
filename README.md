@@ -91,4 +91,4 @@ Frequently used properties
 
 Examples
 ---
-Under construction
+Check out the examples/ folder!!
