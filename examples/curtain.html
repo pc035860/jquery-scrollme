@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>scrollme curtain example</title>
+  <style type="text/css">
+  #expander {
+    height: 6000px;
+  }
+  #stage {
+    position: fixed;
+    left: 0; top: 0;
+    width: 100%;
+  }
+  #stage .scene {
+    position: absolute;
+    width: 100%;
+    height: 900px;
+    -webkit-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
+  }
+  #stage .scene:nth-child(1) {
+    top: 0; left: 0;
+    background-color: #3498db;
+    z-index: 1;
+  }
+  #stage .scene:nth-child(2) {
+    top: -900px; left: 0;
+    background-color: #16a085;
+    z-index: 2;
+  }
+  #stage .scene:nth-child(3) {
+    top: 0; left: 100%;
+    background-color: #f1c40f;
+    z-index: 3;
+  }
+  #stage .scene:nth-child(4) {
+    top: 0; left: -100%;
+    background-color: #e74c3c;
+    z-index: 4;
+  }
+  #stage .scene:nth-child(5) {
+    top: 900px; left: 0;
+    background-color: #2c3e50;
+    z-index: 5;
+  }
+  #stage #hint {
+    position: absolute;
+    left: 0; top: 0;
+    line-height: 300px;
+    z-index: 1000;
+    width: 100%;
+    height: 300px;
+    color: black;
+    font-size: 4em;
+    text-align: center;
+  }
+  #stage #hint .text {
+    display: none;
+    color: white;
+  }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <div class="scene"></div>
+    <div class="scene" data-sm-f900t1800="top -900 0 px"></div>
+    <div class="scene" data-sm-f1800t2700="left 100 0 %"></div>
+    <div class="scene" data-sm-f2700t3600="left -100 0 %"></div>
+    <div class="scene" data-sm-f3600t4500="top 900 0 px"></div>
+
+    <div id="hint">
+      <div class="text" style="display: block" data-sm-f400t900="rotate 0 360 deg, scale 1 3 _ sineOut, opacity 1 0, display block none">Hi, I'm a curtain.</div>
+      <div class="text" data-sm-f900t1500="scale 0 1 _ backOut" data-sm-f1700t1800="opacity 1 0, display block none">from top</div>
+      <div class="text" data-sm-f1800t2400="scale 0 1 _ backOut" data-sm-f2600t2700="opacity 1 0, display block none">from right</div>
+      <div class="text" data-sm-f2700t3300="scale 0 1 _ backOut" data-sm-f3500t3600="opacity 1 0, display block none">from left</div>
+      <div class="text" style="display: block" data-sm-f3600t4200="scale 0 1 _ backOut">from bottom</div>
+    </div>
+  </div>
+
+  <div id="expander"></div>
+
+  <script src="../components/jquery/jquery.min.js"></script>
+  <script src="../src/jquery-scrollme.js"></script>
+  <script type="text/javascript">
+  $(function () {
+    $('#stage .scene, #hint .text').scrollme();
+  });
+  </script>
+</body>
+</html>

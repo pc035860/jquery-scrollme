@@ -283,11 +283,8 @@
     function _trim(str) {
         var start = -1,
         end = str.length;
-        while (str.charCodeAt(--end) < 33) {
-            while (str.charCodeAt(++start) < 33) {
-
-            } 
-        }
+        while (str.charCodeAt(--end) < 33) {}
+        while (str.charCodeAt(++start) < 33) {} 
         return str.slice(start, end + 1);
     }
 
