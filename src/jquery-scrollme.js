@@ -10,7 +10,7 @@
  *         props[, props[, ...]]
  *
  *         props
- *             style name start end [unit]
+ *             style name start end [unit] [easing]
  */
 
 (function($) {
@@ -143,7 +143,7 @@
                             name: extracted[0],
                             start: $.isNumeric(extracted[1]) ? Number(extracted[1]) : extracted[1],
                             end: $.isNumeric(extracted[2]) ? Number(extracted[2]) : extracted[2],
-                            unit: extracted[3] || '',
+                            unit: (extracted[3] && extracted[3] !== '_') ? extracted[3] : '',
                             easing: (extracted[4] && _easing[extracted[4]]) ? 
                                         _easing[extracted[4]] : 
                                         _easing.linear

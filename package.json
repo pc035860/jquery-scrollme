@@ -1,6 +1,6 @@
 {
   "name": "jquery-scrollme",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A super lightweight jQuery plug-in for parallax scrolling-ish effects",
   "main": "index.js",
   "directories": {
