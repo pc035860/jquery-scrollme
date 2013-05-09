@@ -70,11 +70,11 @@
     <div class="scene" data-sm-f3600t4500="top 900 0 px"></div>
 
     <div id="hint">
-      <div class="text" style="display: block" data-sm-f400t900="rotate 0 360 deg, scale 1 3 _ sineOut, opacity 1 0, display block none">Hi, I'm a curtain.</div>
-      <div class="text" data-sm-f900t1500="scale 0 1 _ backOut" data-sm-f1700t1800="opacity 1 0, display block none">from top</div>
-      <div class="text" data-sm-f1800t2400="scale 0 1 _ backOut" data-sm-f2600t2700="opacity 1 0, display block none">from right</div>
-      <div class="text" data-sm-f2700t3300="scale 0 1 _ backOut" data-sm-f3500t3600="opacity 1 0, display block none">from left</div>
-      <div class="text" style="display: block" data-sm-f3600t4200="scale 0 1 _ backOut">from bottom</div>
+      <div class="text" style="display: block" data-sm-f400t900="rotate 0 360 deg, scale 1 3 _ sineOut, opacity 1 0, display block none">Curtain effects</div>
+      <div class="text" data-sm-f900t1500="scale 0 1 _ backOut" data-sm-f1700t1800="opacity 1 0, display block none">From top</div>
+      <div class="text" data-sm-f1800t2400="scale 0 1 _ backOut" data-sm-f2600t2700="opacity 1 0, display block none">From right</div>
+      <div class="text" data-sm-f2700t3300="scale 0 1 _ backOut" data-sm-f3500t3600="opacity 1 0, display block none">From left</div>
+      <div class="text" style="display: block" data-sm-f3600t4200="scale 0 1 _ backOut">From bottom</div>
     </div>
   </div>
 
@@ -85,6 +85,15 @@
   <script type="text/javascript">
   $(function () {
     $('#stage .scene, #hint .text').scrollme();
+
+    $(window).resize(function () {
+      var centerHeight = $(window).height() - 10;
+      $('#hint').css({
+        height: centerHeight,
+        lineHeight: centerHeight + 'px'
+      })
+    })
+    .resize();
   });
   </script>
 </body>

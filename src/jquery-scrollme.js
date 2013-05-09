@@ -174,6 +174,7 @@
                     }
                 }, 50);
             });
+            _onScroll();
         }
 
         return this;
@@ -193,11 +194,13 @@
      * handle scrolling interpolations from _registered
      */
     function _scroll () {
-        var scroll_top = $window.scrollTop();
+        var saved_scroll_top = $window.scrollTop(),
+            scroll_top;
 
         $.each(_registered, function(i, obj) {
             var diff_start, frac, transform_list, require_animate;
 
+            scroll_top = saved_scroll_top;
             require_animate = _isRequireAnimate(scroll_top, obj);
 
             if (require_animate !== false) {
