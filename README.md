@@ -89,6 +89,7 @@ Frequently used properties
 * skewX, skewY
 * scale, scaleX, scaleY
 
-Examples
+Demo & Examples
 ---
-Check out the examples/ folder!!
+###### also available in `examples/`
+* [curtain effect](http://pc035860.github.io/jquery-scrollme/examples/curtain.html)
